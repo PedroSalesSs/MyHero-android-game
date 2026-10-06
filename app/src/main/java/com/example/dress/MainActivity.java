@@ -197,6 +197,10 @@ public class MainActivity extends AppCompatActivity {
 
         dialogo.btnCancelar.setOnClickListener(v -> janela.dismiss());
 
+        // Botão "?": abre o Bestiário por cima. A escolha do inimigo continua aberta
+        // embaixo, então ao tocar em "Voltar" o jogador cai de novo aqui.
+        dialogo.btnBestiario.setOnClickListener(v -> BestiarioDialogo.mostrar(this));
+
         // Fundo transparente: quem desenha a janela é o nosso pergaminho, não o tema padrão
         if (janela.getWindow() != null) {
             janela.getWindow().setBackgroundDrawableResource(android.R.color.transparent);

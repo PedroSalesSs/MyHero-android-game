@@ -1,6 +1,6 @@
 # Créditos
 
-O jogo **My Hero** foi desenvolvido como trabalho da disciplina de Dispositivos Móveis. O código, os efeitos sonoros e os cenários de batalha são de autoria própria; as imagens dos personagens, a textura de fundo e a fonte foram criadas por outros artistas e são usadas de acordo com as licenças abertas indicadas abaixo. Muito obrigado a todos os autores por disponibilizarem seus trabalhos.
+O jogo **My Hero** foi desenvolvido por **Pedro Sales da Costa Araujo** como trabalho da disciplina de Dispositivos Móveis. O código, os efeitos sonoros e os cenários de batalha são de autoria própria; as imagens dos personagens, a textura de fundo e a fonte foram criadas por outros artistas e são usadas de acordo com as licenças abertas indicadas abaixo. Muito obrigado a todos os autores por disponibilizarem seus trabalhos.
 
 Os créditos também podem ser vistos dentro do app: na tela inicial, segure o dedo sobre o título *"Escolha seu personagem"*.
 

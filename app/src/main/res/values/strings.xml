@@ -9,9 +9,14 @@
     <string name="opcao_masculino">Masculino</string>
     <string name="opcao_feminino">Feminino</string>
     <string name="btn_voltar">Voltar à escolha de personagem</string>
-    <string name="creditos_titulo">Créditos</string>
     <string name="fechar">Fechar</string>
-    <string name="creditos_texto">Personagens, roupas, inimigos e armas:\nUniversal LPC Spritesheet Character Generator (Liberated Pixel Cup), diversos autores. Licenças abertas: CC-BY-SA, GPL, OGA-BY e CC0. Lista completa de autores no arquivo CREDITOS.md do projeto.\n\nTextura de pedra:\n\"stone wall 4\", por West (OpenGameArt.org). Licença CC0.\n\nFonte:\nMedievalSharp, por Wojciech Kalinowski. Licença SIL Open Font License.</string>
+    <!-- Os <b> deixam os rótulos em negrito (funciona quando o texto é usado direto no layout) -->
+    <string name="creditos_texto"><b>Personagens, roupas, inimigos e armas:</b>\nUniversal LPC Spritesheet Character Generator (Liberated Pixel Cup), diversos autores. Licenças abertas: CC-BY-SA, GPL, OGA-BY e CC0. Lista completa de autores no arquivo CREDITOS.md do projeto.\n\n<b>Textura de pedra:</b>\n\"stone wall 4\", por West (OpenGameArt.org). Licença CC0.\n\n<b>Fonte:</b>\nMedievalSharp, por Wojciech Kalinowski. Licença SIL Open Font License.</string>
+
+    <!-- Assinatura do autor -->
+    <string name="assinatura">Desenvolvido por Pedro Sales</string>
+    <string name="creditos_desenvolvido_por">Desenvolvido por</string>
+    <string name="creditos_autor">Pedro Sales da Costa Araujo</string>
     <string name="btn_andar">Andar</string>
     <string name="btn_parar">Parar</string>
     <string name="btn_correr">Correr</string>
@@ -30,6 +35,49 @@
     <string name="descricao_img_inimigo">Inimigo</string>
     <!-- %1$s = nome do ataque, %2$d = vida, %3$d e %4$d = dano mínimo e máximo -->
     <string name="ficha_inimigo">%1$s · Vida %2$d · Dano %3$d–%4$d</string>
+    <string name="descricao_btn_bestiario">Informações dos inimigos</string>
+
+    <!-- Bestiário: janela aberta pelo botão "?" da escolha do inimigo.
+         Os textos com <b> e <font> ficam dentro de CDATA porque passam pelo
+         getString (que preenche os números) e depois pelo HtmlCompat (que aplica o estilo). -->
+    <string name="titulo_bestiario">Bestiário</string>
+    <string name="voltar">Voltar</string>
+    <string name="regras_titulo">Como o combate funciona</string>
+    <!-- %1$d e %2$d = dano do Ataque Leve, %3$d = vida do herói -->
+    <string name="regra_ataque"><![CDATA[Seu Ataque Leve causa <b>%1$d–%2$d</b> de dano. Você tem <b>%3$d</b> de vida.]]></string>
+    <!-- %1$d = chance de o inimigo preparar o golpe -->
+    <string name="regra_preparo"><![CDATA[Todo inimigo tem <b>%1$d%%</b> de chance por turno de <b>preparar</b> um golpe especial. A tela brilha <font color="#C45A00">laranja</font> e ele avisa: o golpe sai no próximo turno.]]></string>
+    <!-- %1$d = quanto a defesa reduz, %2$d = chance de bloqueio perfeito, %3$d e %4$d = dano do contra-ataque -->
+    <string name="regra_defesa"><![CDATA[<b>Defender</b> reduz o golpe em <b>%1$d%%</b> e tem <b>%2$d%%</b> de chance de <b>Bloqueio Perfeito</b>: dano zero e você contra-ataca (%3$d–%4$d).]]></string>
+    <string name="regra_defesa_turno"><![CDATA[A defesa vale só para o turno seguinte do inimigo — defender enquanto ele <i>prepara</i> não adianta.]]></string>
+    <!-- %1$d = usos do Ataque Pesado, %2$d = chance de triplo, %3$d = usos da poção, %4$d = cura -->
+    <string name="regra_especiais"><![CDATA[<b>Ataque Pesado</b> (%1$d×): concentra um turno, depois causa o dobro (%2$d%% de chance de triplo). <b>Poção</b> (%3$d×): +%4$d de vida sem gastar o turno.]]></string>
+
+    <!-- Cartão de cada inimigo no Bestiário -->
+    <!-- %1$d = vida, %2$d e %3$d = dano mínimo e máximo do ataque normal -->
+    <string name="bestiario_ficha">Vida %1$d · Dano %2$d–%3$d</string>
+    <string name="bestiario_golpe">✦ %1$s</string>
+    <!-- %1$s = aviso que o inimigo dá, %2$s = como o golpe funciona -->
+    <string name="bestiario_golpe_regra">“%1$s” %2$s</string>
+    <!-- %1$s = multiplicador (ex.: 2,5) -->
+    <string name="golpe_um">Um golpe com %1$s× o dano.</string>
+    <!-- %1$d = quantidade de golpes, %2$s = multiplicador -->
+    <string name="golpe_varios">%1$d golpes seguidos de %2$s× cada.</string>
+    <string name="golpe_atravessa">A arma atravessa a guarda.</string>
+    <string name="linha_sem_defender">Sem defender</string>
+    <string name="linha_defendendo">Defendendo</string>
+    <string name="linha_bloqueio">Bloqueio perfeito</string>
+    <!-- Faixa de dano: %1$d a %2$d -->
+    <string name="faixa_dano">%1$d–%2$d</string>
+    <!-- Faixa de vários golpes: total (%1$d–%2$d) e, entre parênteses, quantos golpes (%3$d) de quanto (%4$d–%5$d) -->
+    <string name="faixa_dano_varios">%1$d–%2$d (%3$d×%4$d–%5$d)</string>
+    <string name="bloqueio_impossivel">Impossível</string>
+    <string name="bloqueio_cada_golpe">Chance em cada golpe</string>
+    <string name="bloqueio_funciona">Funciona (%1$d%%)</string>
+    <string name="dica"><![CDATA[<b>Dica:</b> %1$s]]></string>
+    <string name="dica_esqueleto">o mais fraco, ideal para treinar. Contra a Estocada, defender ainda reduz o dano, mas não espere contra-ataque.</string>
+    <string name="dica_lobisomem">sua defesa vale para os dois golpes, e cada um tem a sua chance de Bloqueio Perfeito — até dois contra-ataques!</string>
+    <string name="dica_orc">o Golpe Brutal pode tirar mais da metade da sua vida. Viu o aviso? Defenda, sempre.</string>
 
     <!-- Batalha: combate -->
     <string name="nome_heroi">Herói</string>

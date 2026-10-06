@@ -1,6 +1,7 @@
 package com.example.dress.data;
 
 import androidx.annotation.DrawableRes;
+import androidx.annotation.StringRes;
 
 import com.example.dress.R;
 import com.example.dress.model.Categoria;
@@ -160,6 +161,20 @@ public final class Catalogo {
             case LOBISOMEM: return R.drawable.cenario_floresta;
             case ORC:
             default:        return R.drawable.cenario_acampamento;
+        }
+    }
+
+    /**
+     * Dica de estratégia de cada inimigo, mostrada no Bestiário.
+     * As regras e os números são montados pelo código; só a dica é escrita à mão.
+     */
+    @StringRes
+    public static int getDicaInimigo(Inimigo inimigo) {
+        switch (inimigo) {
+            case ESQUELETO: return R.string.dica_esqueleto;
+            case LOBISOMEM: return R.string.dica_lobisomem;
+            case ORC:
+            default:        return R.string.dica_orc;
         }
     }
 }

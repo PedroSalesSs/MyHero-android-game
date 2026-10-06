@@ -16,6 +16,7 @@ import androidx.core.view.WindowInsetsCompat;
 
 import com.example.dress.data.Catalogo;
 import com.example.dress.databinding.ActivityEscolhaBinding;
+import com.example.dress.databinding.DialogoCreditosBinding;
 import com.example.dress.model.Categoria;
 import com.example.dress.model.Item;
 import com.example.dress.model.TipoCorpo;
@@ -69,13 +70,23 @@ public class EscolhaActivity extends AppCompatActivity {
         startActivity(intent);
     }
 
-    /** Mostra os créditos das imagens e da fonte numa janela de diálogo. */
+    /**
+     * Mostra os créditos numa janela de pergaminho: a assinatura do autor no topo
+     * e, embaixo, os créditos das imagens e da fonte.
+     */
     private void mostrarCreditos() {
-        new AlertDialog.Builder(this)
-                .setTitle(R.string.creditos_titulo)
-                .setMessage(R.string.creditos_texto)
-                .setPositiveButton(R.string.fechar, null)
-                .show();
+        DialogoCreditosBinding dialogo = DialogoCreditosBinding.inflate(getLayoutInflater());
+        AlertDialog janela = new AlertDialog.Builder(this)
+                .setView(dialogo.getRoot())
+                .create();
+
+        dialogo.btnFechar.setOnClickListener(v -> janela.dismiss());
+
+        // Fundo transparente: quem desenha a janela é o nosso pergaminho, não o tema padrão
+        if (janela.getWindow() != null) {
+            janela.getWindow().setBackgroundDrawableResource(android.R.color.transparent);
+        }
+        janela.show();
     }
 
     /** Mostra no cartão a prévia do personagem, sem suavização (pixel art nítida). */

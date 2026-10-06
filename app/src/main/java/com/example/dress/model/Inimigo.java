@@ -82,4 +82,21 @@ public enum Inimigo {
     public double getMultiplicadorPoderoso() { return multiplicadorPoderoso; }
     public int getGolpesPoderosos() { return golpesPoderosos; }
     public boolean isPoderosoBloqueavel() { return poderosoBloqueavel; }
+
+    // ===== Faixas de dano do golpe poderoso (usadas pelo Bestiário) =====
+
+    /** Menor dano de UM golpe poderoso, sem defesa. */
+    public int getDanoPoderosoMinimo() {
+        return Batalha.aplicarMultiplicador(danoMinimo, multiplicadorPoderoso);
+    }
+
+    /** Maior dano de UM golpe poderoso, sem defesa. */
+    public int getDanoPoderosoMaximo() {
+        return Batalha.aplicarMultiplicador(danoMaximo, multiplicadorPoderoso);
+    }
+
+    /** Nível de dificuldade, de 1 até a quantidade de inimigos (segue a ordem do enum). */
+    public int getDificuldade() {
+        return ordinal() + 1;
+    }
 }

@@ -147,4 +147,49 @@ public class BatalhaTest {
         }
         assertEquals(0, outra.getVidaInimigo());
     }
+
+    // ===================================================================== Bestiário
+
+    @Test
+    public void faixasDoBestiarioBatemComAsRegras() {
+        // Os valores que aparecem na tabela de dano do Bestiário
+        assertEquals(33, Inimigo.ESQUELETO.getDanoPoderosoMinimo());
+        assertEquals(48, Inimigo.ESQUELETO.getDanoPoderosoMaximo());
+        assertEquals(18, Inimigo.LOBISOMEM.getDanoPoderosoMinimo());
+        assertEquals(25, Inimigo.LOBISOMEM.getDanoPoderosoMaximo());
+        assertEquals(45, Inimigo.ORC.getDanoPoderosoMinimo());
+        assertEquals(63, Inimigo.ORC.getDanoPoderosoMaximo());
+
+        // Defendendo, o Golpe Brutal do Orc fica entre 16 e 22
+        assertEquals(16, Batalha.reduzirPelaDefesa(Inimigo.ORC.getDanoPoderosoMinimo()));
+        assertEquals(22, Batalha.reduzirPelaDefesa(Inimigo.ORC.getDanoPoderosoMaximo()));
+    }
+
+    @Test
+    public void golpePoderosoDeVerdadeFicaDentroDaFaixaDoBestiario() {
+        // Simula muitas lutas sem defender e confere cada golpe poderoso que sair
+        for (Inimigo inimigo : Inimigo.values()) {
+            int golpesVistos = 0;
+            for (int semente = 0; semente < 200; semente++) {
+                Batalha batalha = new Batalha(inimigo, new Random(semente));
+                while (!batalha.heroiDerrotado()) {
+                    Batalha.TurnoInimigo turno = batalha.turnoDoInimigo();
+                    if (turno.tipo != Batalha.TipoTurno.GOLPE_PODEROSO) continue;
+                    for (Batalha.Golpe golpe : turno.golpes) {
+                        assertTrue(golpe.dano >= inimigo.getDanoPoderosoMinimo());
+                        assertTrue(golpe.dano <= inimigo.getDanoPoderosoMaximo());
+                        golpesVistos++;
+                    }
+                }
+            }
+            assertTrue(golpesVistos > 0);
+        }
+    }
+
+    @Test
+    public void dificuldadeSegueAOrdemDoEnum() {
+        assertEquals(1, Inimigo.ESQUELETO.getDificuldade());
+        assertEquals(2, Inimigo.LOBISOMEM.getDificuldade());
+        assertEquals(3, Inimigo.ORC.getDificuldade());
+    }
 }

@@ -4,6 +4,8 @@ Jogo Android **nativo em Java** em que o jogador escolhe um herói e monta o vis
 
 Projeto desenvolvido para a disciplina de **Dispositivos Móveis** do curso de **Sistemas para Internet**.
 
+Desenvolvido por **Pedro Sales da Costa Araujo**.
+
 <p align="center">
   <img src="docs/tela_escolha.png" width="260" alt="Tela de escolha do personagem">
   &nbsp;&nbsp;
@@ -27,6 +29,7 @@ Projeto desenvolvido para a disciplina de **Dispositivos Móveis** do curso de *
 - **Batalha por turnos**: o botão *Batalha* abre a escolha do inimigo (esqueleto, lobisomem ou orc, em ordem de dificuldade). A luta acontece numa tela deitada, com o herói usando a roupa montada pelo jogador e um cenário próprio para cada inimigo (cemitério, floresta e acampamento). No fim aparece o resultado (vitória ou derrota) e o botão para voltar ao menu.
 - **Quatro ações de combate**: **Ataque Leve**; **Defender**, que reduz o golpe em 65% e tem 30% de chance de bloqueio perfeito (nenhum dano e contra-ataque); **Ataque Pesado**, que concentra a força por um turno e sai no seguinte com o dobro do dano (35% de chance de triplo), uma vez por luta; e **Poção**, que recupera 15 de vida sem gastar o turno, uma vez por luta.
 - **Golpes poderosos anunciados**: de vez em quando o inimigo se prepara (com aviso na tela e um brilho alaranjado) e, no turno seguinte, solta um golpe especial: a *Estocada Certeira* do esqueleto atravessa a guarda, a *Fúria Selvagem* do lobisomem são dois golpes seguidos e o *Golpe Brutal* do orc causa o triplo do dano. Defender na hora certa é o que decide a luta.
+- **Bestiário**: na janela de escolha do inimigo, o botão **?** abre um guia com as regras do combate e as particularidades de cada inimigo: vida, dano, como funciona o golpe especial, uma tabela de dano (sem defender, defendendo e com bloqueio perfeito) e uma dica de estratégia. Os números são calculados a partir das próprias regras da batalha.
 - **Efeitos sonoros**: golpes, impactos, defesa, bloqueio perfeito, poção, avisos dos inimigos e fanfarras de vitória e derrota.
 - **Créditos secretos**: na tela inicial, segure o dedo sobre o título *"Escolha seu personagem"*.
 
@@ -78,10 +81,11 @@ Ao todo, são **milhares de combinações** possíveis de visual.
 ```
 app/src/main/java/com/example/dress/
 ├── BatalhaActivity.java    # Batalha por turnos (tela deitada)
+├── BestiarioDialogo.java   # Janela "?" com as regras do combate e a ficha de cada inimigo
 ├── EscolhaActivity.java    # Tela inicial: escolha do corpo e créditos
 ├── MainActivity.java       # Tela de vestir, girar, animar, recolorir e escolher o inimigo
 ├── data/
-│   └── Catalogo.java       # Lista de todas as peças do jogo
+│   └── Catalogo.java       # Lista de todas as peças do jogo (e imagens/dicas dos inimigos)
 ├── model/
 │   ├── Animacao.java       # Parado, andar, correr, sentar, atacar e derrota
 │   ├── Batalha.java        # Regras da luta: vida, dano, defesa, poção e golpes especiais

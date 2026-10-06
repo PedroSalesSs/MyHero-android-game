@@ -220,7 +220,7 @@ public class Batalha {
 
     /** Calcula um golpe do inimigo, aplicando defesa, bloqueio perfeito e contra-ataque. */
     private Golpe resolverGolpe(double multiplicador, boolean bloqueavel) {
-        int dano = (int) Math.round(sortear(inimigo.getDanoMinimo(), inimigo.getDanoMaximo()) * multiplicador);
+        int dano = aplicarMultiplicador(sortear(inimigo.getDanoMinimo(), inimigo.getDanoMaximo()), multiplicador);
         boolean defendido = false;
         boolean bloqueioPerfeito = false;
         int contraAtaque = 0;
@@ -233,12 +233,30 @@ public class Batalha {
                 causarDanoNoInimigo(contraAtaque);
             } else {
                 defendido = true;
-                dano = (int) Math.round(dano * FRACAO_DANO_DEFENDENDO);
+                dano = reduzirPelaDefesa(dano);
             }
         }
 
         vidaHeroi = Math.max(0, vidaHeroi - dano);
         return new Golpe(dano, defendido, bloqueioPerfeito, contraAtaque, vidaHeroi, vidaInimigo);
+    }
+
+    // ===================================================================== contas do dano
+
+    /*
+     * As duas contas abaixo são públicas e estáticas porque o Bestiário (a janela
+     * de informações dos inimigos) usa exatamente as mesmas regras para mostrar
+     * as faixas de dano. Assim, se um valor mudar aqui, a janela acompanha sozinha.
+     */
+
+    /** Dano de um golpe multiplicado (golpe poderoso), arredondado para inteiro. */
+    public static int aplicarMultiplicador(int dano, double multiplicador) {
+        return (int) Math.round(dano * multiplicador);
+    }
+
+    /** Dano que sobra quando o herói está defendendo (sem bloqueio perfeito). */
+    public static int reduzirPelaDefesa(int dano) {
+        return (int) Math.round(dano * FRACAO_DANO_DEFENDENDO);
     }
 
     // ===================================================================== auxiliares

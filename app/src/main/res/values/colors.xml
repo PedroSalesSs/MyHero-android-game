@@ -12,6 +12,10 @@
     <color name="dourado">#D9A441</color>
     <color name="tinta">#2E1B0E</color>
     <color name="cinza_claro">#C8C8C8</color>
+    <color name="vermelho_tinta">#8A2A17</color>      <!-- destaque no Bestiário: nome do golpe especial -->
+    <color name="sombra_pergaminho">#1F3B2314</color> <!-- madeira bem clarinha: caixa das regras -->
+    <color name="dourado_estrela_vazia">#4DD9A441</color> <!-- estrela de dificuldade apagada -->
+    <color name="linha_tabela">#806B4226</color>      <!-- linhas da tabela de dano -->
 
     <!-- Batalha -->
     <color name="vida_cheia">#5E9B3A</color>

@@ -9,15 +9,44 @@
     android:background="@drawable/bg_pergaminho"
     android:orientation="vertical">
 
-    <TextView
+    <!-- Cabeçalho: título centralizado e, no canto direito, o botão "?" que abre o Bestiário.
+         O título tem um respiro dos dois lados para nunca ficar embaixo do botão. -->
+    <FrameLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:gravity="center"
-        android:text="@string/titulo_escolha_inimigo"
-        android:fontFamily="@font/medieval"
-        android:textColor="@color/tinta"
-        android:textSize="26sp"
-        android:textStyle="bold" />
+        android:layout_height="wrap_content">
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_vertical"
+            android:paddingHorizontal="28dp"
+            android:gravity="center"
+            android:text="@string/titulo_escolha_inimigo"
+            android:fontFamily="@font/medieval"
+            android:textColor="@color/tinta"
+            android:textSize="24sp"
+            android:textStyle="bold" />
+
+        <TextView
+            android:id="@+id/btnBestiario"
+            android:layout_width="26dp"
+            android:layout_height="26dp"
+            android:layout_gravity="end|top"
+            android:background="@drawable/bg_botao_redondo"
+            android:clickable="true"
+            android:focusable="true"
+            android:gravity="center"
+            android:text="\?"
+            android:fontFamily="@font/medieval"
+            android:textColor="@color/dourado"
+            android:textSize="15sp"
+            android:textStyle="bold"
+            android:shadowColor="#000000"
+            android:shadowDx="1"
+            android:shadowDy="1"
+            android:shadowRadius="2"
+            android:contentDescription="@string/descricao_btn_bestiario" />
+    </FrameLayout>
 
     <!-- Os cartões dos inimigos entram aqui -->
     <LinearLayout
