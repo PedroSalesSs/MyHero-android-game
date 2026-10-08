@@ -1,0 +1,204 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Cartão de um inimigo no Bestiário: retrato, nome, dificuldade e ficha;
+     depois o golpe especial com a tabela de dano e, por fim, a dica. -->
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_marginVertical="6dp"
+    android:padding="8dp"
+    android:background="@drawable/bg_madeira"
+    android:orientation="vertical">
+
+    <!-- ===== Cabeçalho: retrato + nome, estrelas e ficha ===== -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center_vertical"
+        android:orientation="horizontal">
+
+        <ImageView
+            android:id="@+id/imgInimigo"
+            android:layout_width="64dp"
+            android:layout_height="64dp"
+            android:padding="9dp"
+            android:background="@drawable/bg_moldura"
+            android:scaleType="fitCenter"
+            android:contentDescription="@string/descricao_img_inimigo" />
+
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:layout_marginStart="10dp"
+            android:orientation="vertical">
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:gravity="center_vertical"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:id="@+id/txtNome"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/medieval"
+                    android:textColor="@color/pergaminho"
+                    android:textSize="20sp"
+                    android:textStyle="bold" />
+
+                <!-- Dificuldade em estrelas (as apagadas são pintadas pelo código) -->
+                <TextView
+                    android:id="@+id/txtEstrelas"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="6dp"
+                    android:textColor="@color/dourado"
+                    android:textSize="14sp" />
+            </LinearLayout>
+
+            <TextView
+                android:id="@+id/txtFicha"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/medieval"
+                android:textColor="@color/pergaminho"
+                android:textSize="13sp" />
+        </LinearLayout>
+    </LinearLayout>
+
+    <!-- ===== Golpe especial: nome, como funciona e tabela de dano ===== -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:paddingHorizontal="8dp"
+        android:paddingVertical="6dp"
+        android:background="@drawable/bg_pergaminho"
+        android:orientation="vertical">
+
+        <TextView
+            android:id="@+id/txtGolpe"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/medieval"
+            android:textColor="@color/vermelho_tinta"
+            android:textSize="16sp"
+            android:textStyle="bold" />
+
+        <TextView
+            android:id="@+id/txtGolpeRegra"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="2dp"
+            android:layout_marginBottom="4dp"
+            android:fontFamily="@font/medieval"
+            android:textColor="@color/tinta"
+            android:textSize="13sp" />
+
+        <!-- Linha 1: sem defender -->
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:background="@color/linha_tabela" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:paddingVertical="1dp"
+            android:orientation="horizontal">
+
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="@string/linha_sem_defender"
+                android:fontFamily="@font/medieval"
+                android:textColor="@color/tinta"
+                android:textSize="13sp" />
+
+            <TextView
+                android:id="@+id/txtSemDefender"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/medieval"
+                android:textColor="@color/tinta"
+                android:textSize="13sp"
+                android:textStyle="bold" />
+        </LinearLayout>
+
+        <!-- Linha 2: defendendo -->
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:background="@color/linha_tabela" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:paddingVertical="1dp"
+            android:orientation="horizontal">
+
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="@string/linha_defendendo"
+                android:fontFamily="@font/medieval"
+                android:textColor="@color/tinta"
+                android:textSize="13sp" />
+
+            <TextView
+                android:id="@+id/txtDefendendo"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/medieval"
+                android:textColor="@color/tinta"
+                android:textSize="13sp"
+                android:textStyle="bold" />
+        </LinearLayout>
+
+        <!-- Linha 3: bloqueio perfeito -->
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:background="@color/linha_tabela" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:paddingVertical="1dp"
+            android:orientation="horizontal">
+
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="@string/linha_bloqueio"
+                android:fontFamily="@font/medieval"
+                android:textColor="@color/tinta"
+                android:textSize="13sp" />
+
+            <TextView
+                android:id="@+id/txtBloqueio"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/medieval"
+                android:textColor="@color/tinta"
+                android:textSize="13sp"
+                android:textStyle="bold" />
+        </LinearLayout>
+    </LinearLayout>
+
+    <!-- ===== Dica de estratégia ===== -->
+    <TextView
+        android:id="@+id/txtDica"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="6dp"
+        android:fontFamily="@font/medieval"
+        android:textColor="@color/pergaminho"
+        android:textSize="13sp" />
+
+</LinearLayout>

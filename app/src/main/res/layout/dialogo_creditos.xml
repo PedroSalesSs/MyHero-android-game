@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Janela de créditos (abre segurando a placa "Escolha seu personagem").
+     No topo fica a assinatura do autor; embaixo, os créditos dos recursos de terceiros. -->
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:padding="16dp"
+    android:background="@drawable/bg_pergaminho"
+    android:orientation="vertical">
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:text="@string/creditos_desenvolvido_por"
+        android:fontFamily="@font/medieval"
+        android:textColor="@color/tinta"
+        android:textSize="16sp" />
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:text="@string/creditos_autor"
+        android:fontFamily="@font/medieval"
+        android:textColor="@color/tinta"
+        android:textSize="22sp"
+        android:textStyle="bold" />
+
+    <!-- Linha separando a assinatura dos créditos -->
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="2dp"
+        android:layout_marginVertical="10dp"
+        android:background="@color/madeira_escura" />
+
+    <!-- wrap_content + peso 1: ocupa só o que precisa, mas se o texto não couber
+         na tela ele encolhe e rola, sem empurrar o botão Fechar para fora -->
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_weight="1">
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/creditos_texto"
+            android:textColor="@color/tinta"
+            android:textSize="14sp" />
+    </ScrollView>
+
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/btnFechar"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginTop="12dp"
+        android:paddingHorizontal="32dp"
+        android:background="@drawable/bg_madeira"
+        android:text="@string/fechar"
+        android:fontFamily="@font/medieval"
+        android:textAllCaps="false"
+        android:textColor="@color/pergaminho"
+        android:textSize="20sp"
+        android:textStyle="bold" />
+
+</LinearLayout>

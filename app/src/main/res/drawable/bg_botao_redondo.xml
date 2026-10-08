@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Botão redondo de madeira (o "?" do Bestiário). Mesmo esquema da bg_madeira:
+     madeira clara normalmente e mais escura quando pressionado. -->
+<selector xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <item android:state_pressed="true">
+        <shape android:shape="oval">
+            <gradient
+                android:angle="270"
+                android:startColor="@color/madeira_escura"
+                android:endColor="@color/madeira" />
+            <stroke
+                android:width="2dp"
+                android:color="@color/madeira_escura" />
+        </shape>
+    </item>
+
+    <item>
+        <shape android:shape="oval">
+            <gradient
+                android:angle="270"
+                android:startColor="@color/madeira_clara"
+                android:endColor="@color/madeira" />
+            <stroke
+                android:width="2dp"
+                android:color="@color/madeira_escura" />
+        </shape>
+    </item>
+
+</selector>
